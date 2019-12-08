@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Homework</title>
+      <script>
+        window.onload = function () {
+            var btns = document.querySelectorAll('input');
+            for (var i = 0; i < btns.length; i++) {
+	            btns[i].addEventListener("click",function (e){
+                      var target = e.target;
+                      if (target.tagName == 'INPUT') {
+                          var delDiv =document.getElementById("div"+target.id);
+                          delDiv.remove(); 
+                          delDiv = null;
+                      }
+	              });
+	         }        
+	  }
+	</script>
+
+ <script>
+    var tooltipElem;
+
+    document.onmouseover = function(e) {
+      var target = event.target;
+      var tooltip = target.dataset.tooltip;
+      if (!tooltip) return;
+   
+      tooltipElem = document.createElement('div');
+      tooltipElem.className = 'tooltip';
+      tooltipElem.innerHTML = tooltip;
+      document.body.append(tooltipElem);
+      var coords = target.getBoundingClientRect();
+      var left = coords.left + target.offsetWidth;
+      var top = coords.top - tooltipElem.offsetHeight - 5;
+      if (top < 0) { 
+        top = coords.top + target.offsetHeight + 5;
+      }
+
+      tooltipElem.style.left = left + 'px';
+      tooltipElem.style.top = top + 'px';
+    };
+
+    document.onmouseout = function(e) {
+      if (tooltipElem) {
+        tooltipElem.remove();
+        tooltipElem = null;
+      }
+    };
+  </script>	  
+
+
+<link href="index.css" rel="stylesheet">
+</head>
+<body>
+ <div class="div" id="div0" style=" position:absolute;left:337px;top:36px;width:600px;height:22px;">
+   <span class="spanhead"><strong><em>Руководство по оформлению HTML/CSS кода от Google</em></strong></span>
+ </div>
+ <div class="div" id="div1" style="position:absolute;left:121px;top:86px;width:894px;height:108px;text-align:justify;">
+   <span class="span"><strong><em>Протокол<br></em></strong></span><span data-tooltip="Рекомендации относительно протокола передачи данных" class="spaninner">Не указывайте протокол при включении ресурсов на страницу.<br>Опускайте название протокола (http:, https:) в ссылках на картинки или другие медиа-ресурсы, файлы стилей или скрипты, конечно, если эти файлы доступны по обоим протоколам.Отсутствие протокола делает ссылку относительной, что предотвращает смешивание ресурсов из разных протоколов и незначительно уменьшает размер файлов.</span>
+    <br>
+     <input class="button" type="button" id="1" name="" value="Удалить абзац" style="left:121px;width:100px;height:25px;">
+   </br>
+ </div>
+
+ <div class="div" id="div2" style="position:absolute;left:121px;top:247px;width:894px;height:72px;text-align:justify;">
+   <span class="span"><strong><em>Регистр<br></em></strong></span><span  data-tooltip="Рекомендации по использованию регистра при написании кода" class="spaninner">Весь код должен быть написан в нижнем регистре: Это относится к названиям элементов, названиям атрибутов, значениям атрибутов (кроме текста/CDATA), селекторам, свойствам и их значениям (кроме текста).</span>
+   <br>
+    <input  class="button" type="button" id="2" name="" value="Удалить абзац" style="left:121px;width:100px;height:25px;">
+   </br>
+ </div>
+
+ <div class="div" id="div3" style="position:absolute;left:121px;top:384px;width:894px;height:90px;text-align:justify;">
+    <span class="span"><strong><em>Кодировка<br></em></strong></span><span  data-tooltip="Рекомендации по использованию кодировок" class="spaninner">Используйте UTF-8 (без BOM).<br>Убедитесь, что ваш редактор использует кодировку UTF-8 без метки порядка байтов (BOM)<br>Указывайте кодировку в HTML шаблонах и документах с помощью meta charset. Опускайте кодировку для сss-файлов: для них UTF-8 задана по умолчанию.</span>
+     <br> 
+       <input  class="button" type="button" id="3" name="" value="Удалить абзац" style="left:121px;width:100px;height:25px;">
+     </br>
+ </div>
+ 
+ <div class="div" id="div4" style="position:absolute;left:121px;top:536px;width:894px;height:108px;text-align:justify;">
+    <span class="span"><strong><em>Комментарии<br></em></strong></span><span   data-tooltip="Рекомендации по использованию комментариев" class="spaninner">Используйте комментарии, чтобы пояснить свой код: что он делает, за что отвечает, и почему используется выбранное решение.<br>(Этот пункт не обязателен, потому что нет смысла ожидать, что код всегда будет хорошо задокументирован. Полезность комментирования зависит от сложности проекта и может различаться для HTML и CSS кода. )</span>
+     <br>
+       <input class="button" type="button" id="4" name="" value="Удалить абзац" style="left:121px;width:100px;height:25px;">
+     </br>
+ </div>
+
+ <div class="div" id="div5" style="position:absolute;left:121px;top:701px;width:894px;height:90px;text-align:justify;">
+     <span class="span"><strong><em>Тип документа<br></em></strong></span><span   data-tooltip="Рекомендации ,касающиеся достижения производительности" span class="spaninner">По возможности используйте валидный HTML.<br>Используйте валидный HTML код, кроме случаев, когда использование не позволяет достичь размера файла, необходимого для нужного уровня производительности.<br>Используйте такие инструменты как W3C HTML validator (англ.) чтобы проверить валидность кода.</span>
+    <br>
+     <input class="button" type="button" id="5" name="" value="Удалить абзац" style="left:121px;width:100px;height:25px;">
+    </br>
+ </div>
+</body>
+</html>

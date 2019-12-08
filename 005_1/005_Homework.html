@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+     .button
+{
+   border: 1px solid #2E6DA4;
+   border-radius: 4px;
+   background-color: #3370B7;
+   background-image: none;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   margin: 0;
+}  
+
+a
+{
+   color: #0000FF;
+   text-decoration: underline;
+   font-size:22px;
+}
+a:visited
+{
+   color: #800080;
+   
+}
+a:active
+{
+   color: #FF0000;
+ 
+}
+a:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+  
+}
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var escpBtn = document.getElementById("bt1");
+            var mainA = document.getElementById("a1");
+            mainA.addEventListener("click", clickA); 
+
+            escpBtn.addEventListener("click", 
+                function (){
+                    mainA.removeEventListener("click", clickA);  
+                });   
+             
+            function clickA (){
+              var div = document.getElementById("div");
+                  if (mainA.name=="Показать"){
+                    div.style.display="block"; 
+                    mainA.name="Скрыть";
+                   }
+                   else {
+                    mainA.name="Показать";
+                    div.style.display="none"; 
+                   }
+                }
+        };
+    </script>
+</head>
+<body>
+  <section>
+   <a id="a1" href="#" name="Показать" style=" position:absolute;left:337px;top:36px;width:800px;height:22px;"> Нажмите на ссылку
+            <div id="div" style="display: none">По правилам хорошего тона, строчные элементы не должны содержать внутри себя блочные.</div>
+    </a>
+  </section>
+<button id="bt1" class="button" style="position:absolute;left:337px;width:200px;top:120px;height:25px;">Отменить действие ссылки</button>   
+</body>
+</html>
