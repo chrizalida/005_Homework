@@ -32,11 +32,13 @@
       tooltipElem.innerHTML = tooltip;
       document.body.append(tooltipElem);
       var coords = target.getBoundingClientRect();
-      var left = coords.left + target.offsetWidth;
-      var top = coords.top - tooltipElem.offsetHeight - 5;
-      if (top < 0) { 
+      var left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+      if (left < 0) left = 0; 
+      var top = coords.bottom - tooltipElem.offsetHeight + 50;
+     /* { if (top < 0) { 
         top = coords.top + target.offsetHeight + 5;
       }
+     */
 
       tooltipElem.style.left = left + 'px';
       tooltipElem.style.top = top + 'px';
