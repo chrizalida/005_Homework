@@ -44,6 +44,7 @@ a:hover
         window.onload = function () {
 
             var escpBtn = document.getElementById("bt1");
+            var retBtn = document.getElementById("bt2");
             var mainA = document.getElementById("a1");
             mainA.addEventListener("click", clickA); 
 
@@ -51,7 +52,12 @@ a:hover
                 function (){
                     mainA.removeEventListener("click", clickA);  
                 });   
-             
+            
+            retBtn.addEventListener("click", 
+                function (){
+                     mainA.addEventListener("click", clickA); 
+                });
+
             function clickA (){
               var div = document.getElementById("div");
                   if (mainA.name=="Показать"){
@@ -73,5 +79,6 @@ a:hover
     </a>
   </section>
 <button id="bt1" class="button" style="position:absolute;left:337px;width:200px;top:120px;height:25px;">Отменить действие ссылки</button>   
+<button id="bt2" class="button" style="position:absolute;left:337px;width:200px;top:160px;height:25px;">Вернуть действие ссылки</button> 
 </body>
 </html>
